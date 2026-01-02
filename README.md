@@ -4,8 +4,8 @@ Selamat datang di Repository Github **Materi Mobile Programming 2025**. Reposito
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://tenor.com/id/view/the-chase-studio-choom-choom-sm-sm-entertainment-gif-16889503316599328019">
-    <img alt="Nee Chan" src="https://tenor.com/id/view/the-chase-studio-choom-choom-sm-sm-entertainment-gif-16889503316599328019" title="Nee Chan" width="50%" loading="lazy"/>
+    <source media="(prefers-color-scheme: dark)" srcset="https://media1.tenor.com/m/6mORyDKvTRMAAAAd/the-chase-studio-choom.gif">
+    <img alt="Nee Chan" src="https://media1.tenor.com/m/6mORyDKvTRMAAAAd/the-chase-studio-choom.gif" title="Nee Chan" width="50%" loading="lazy"/>
   </picture>
 </div>
 
@@ -20,7 +20,7 @@ Di AMCC 2025/2026, mobile programming menjadi salah satu fokus pengembangan keah
 
 ## Hal yang akan dipelajari
 
-![Flutter](https://img.shields.io/badge/flutter-%2302569B.svg?style=for-the-badge&logo=flutter&logoColor=white) ![Dart](https://img.shields.io/badge/dart-%230175C2.svg style=for-the-badge&logo=dart&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black) ![Android Studio](https://img.shields.io/badge/android%20studio-346ac1?style=for-the-badge&logo=android%20studio&logoColor=white)
+![Flutter](https://img.shields.io/badge/flutter-%2302569B.svg?style=for-the-badge&logo=flutter&logoColor=white) ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23FFCA28.svg?style=for-the-badge&logo=firebase&logoColor=black) ![Android Studio](https://img.shields.io/badge/android%20studio-346ac1?style=for-the-badge&logo=android%20studio&logoColor=white)
 
 ## 📋 Daftar Isi 
 -   [🛠️ Instalasi Tools](https://medium.com/amcc-amikom/kenalan-bareng-tech-stack-mobile-programming-6671777d7d18)
@@ -91,7 +91,7 @@ Setelah mengunduh dan mengekstrak materi dari repository, ikuti langkah-langkah 
 -   Setiap materi yang diunduh memiliki file `README.md`.
 -   File ini berisi dokumentasi atau panduan singkat mengenai isi repository tersebut, termasuk tujuan materi dan struktur file.
 
-![Langkah 4: Baca File README.md](./img/run/step-4.png)
+![Langkah 4: Baca File README.md](./img/jalankan/step-4.png)
 
 ## 🗂️ Daftar Materi Berdasarkan Pertemuan
 
