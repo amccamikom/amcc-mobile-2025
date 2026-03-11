@@ -1,4 +1,4 @@
-class mobil {
+class Mobil {
   String merk = "Toyota";
   int kecepatan = 0;
 
@@ -9,7 +9,7 @@ class mobil {
 }
 
 void main() {
-  var mobilSaya = mobil();
+  var mobilSaya = Mobil();
   mobilSaya.merk = "Honda";
   mobilSaya.tambahKecepatan(60);
 }
