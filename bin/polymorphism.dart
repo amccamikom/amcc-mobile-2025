@@ -13,9 +13,9 @@ class Burung extends SuaraHewan {
 }
 
 void main() {
-  List<SuaraHewan> daftarHewan = [Anjing(), Burung()];
+  SuaraHewan anjing = Anjing();
+  SuaraHewan burung = Burung();
 
-  for(var hewan in daftarHewan) {
-    hewan.bunyikan(); // Method (fungsi) yang sama tapi hasilnya berbeda.
-  }
+  anjing.bunyikan();
+  burung.bunyikan();
 }
