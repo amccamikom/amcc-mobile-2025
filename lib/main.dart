@@ -4,6 +4,7 @@ import 'package:edutrack_app/pages/onboarding2_page.dart';
 import 'package:edutrack_app/pages/register_page.dart';
 import 'package:edutrack_app/pages/splash_page.dart';
 import 'package:edutrack_app/pages/main_navigation.dart';
+import 'package:edutrack_app/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,10 +21,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => SplashPage(),
         '/onboarding1': (context) => Onboarding1Page(),
-        '/onboarding2' : (context) => Onboarding2Page(),
-        '/login' : (context) => LoginPage(),
+        '/onboarding2': (context) => Onboarding2Page(),
+        '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/home': (context) => MainNavigation(),
+        '/profile': (context) => ProfilePage(),
       },
       debugShowCheckedModeBanner: false,
     );
