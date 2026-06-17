@@ -1,24 +1,10 @@
+import 'package:edutrack_app/services/auth_service.dart';
 import 'package:edutrack_app/widgets/my_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
-
-  static List<Map<String, String>> userList = []; 
-
-  static void addUser(String email, String password) {
-    userList.add({
-      'email': email,
-      'password': password,
-    });
-  }
-
-  static bool isUserValid(String email, String password) {
-    return userList.any((user) => 
-      user['email'] == email && user['password'] == password
-    );
-  }
   
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -27,6 +13,80 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  final AuthService authService = AuthService();
+  bool isLoading = false;
+
+  Future<void>login() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      await authService.login(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      if(!mounted) return;
+
+      Navigator.pushReplacementNamed(context, '/home');
+    } catch(e) {
+      String message;
+
+      switch (e) {
+        case 'invalid-credential':
+          message =
+              "Email atau password yang Anda masukkan salah. Silakan coba lagi.";
+          break;
+
+        case 'network-request-failed':
+          message =
+              "Tidak dapat terhubung ke internet. Periksa koneksi Anda.";
+          break;
+
+        case 'too-many-requests':
+          message =
+              "Terlalu banyak percobaan login. Silakan coba beberapa saat lagi.";
+          break;
+
+        default:
+          message =
+              "Terjadi kesalahan saat proses login. Silakan coba kembali.";
+      }
+
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(
+            "Login Gagal",
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          content: Text(
+            message,
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(
+                "OK",
+                style: GoogleFonts.poppins(),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    setState(() {
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,37 +155,13 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {
-                            if(
-                              LoginPage.isUserValid(
-                                _emailController.text, 
-                                _passwordController.text)
-                            ) {
-                              Navigator.pushReplacementNamed(context, '/home');
-                            } else {
-                              showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: Text("Login Gagal", style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
-                                  content: Text("Email atau password yang Anda masukkan salah. Silakan coba lagi.", style: GoogleFonts.poppins(fontWeight: FontWeight.w400)),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: Text("OK", style: GoogleFonts.poppins(fontWeight: FontWeight.w400)),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }
-                          },
+                          onPressed: isLoading ? null : login,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF3254FD),
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                           ),
-                          child: Text('Masuk', style:GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white)),
+                          child: Text(isLoading ? 'Loading...' : 'Masuk', style:GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.white)),
                         ),
                       ),
                       const SizedBox(height: 20),
