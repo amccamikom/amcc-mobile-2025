@@ -1,0 +1,12 @@
+{"users": [
+{
+  "localId": "ZyfKMojQQXP857lQ4pSKCubL9lm1",
+  "email": "daus@gmail.com",
+  "emailVerified": false,
+  "passwordHash": "2Z2vSVrQ6RlNblJA4+r+ztiyG3Ls3ardi8CTGMmwEsIjGZGyXGPVI2xbB1Jz+ekYdk0sxDs69WXnupo4DSx9tA==",
+  "salt": "W4sjfjpuBBr49A==",
+  "lastSignedInAt": "1781711207189",
+  "createdAt": "1781709837961",
+  "disabled": false,
+  "providerUserInfo": []
+}]}

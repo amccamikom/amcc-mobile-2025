@@ -26,7 +26,7 @@ class GenderOptions extends StatelessWidget {
         const SizedBox(height: 8),
 
         DropdownButtonFormField<String>(
-          initialValue: selectedGender,
+          value: selectedGender,
           decoration: InputDecoration(
             hintText: "Pilih jenis kelamin",
             contentPadding: const EdgeInsets.symmetric(

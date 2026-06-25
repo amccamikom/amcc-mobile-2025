@@ -1,3 +1,5 @@
+import 'package:edutrack_app/models/task_model.dart';
+import 'package:edutrack_app/services/task_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/TodoCard.dart';
@@ -11,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TaskService _taskService = TaskService();
+
   // Mock data untuk daftar tugas
   List<Map<String, dynamic>> todayTasks = [
     {
@@ -81,7 +85,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text('Batal'),
             ),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 final title = titleController.text.trim();
                 final date = dateController.text.trim();
 
@@ -89,15 +93,12 @@ class _HomePageState extends State<HomePage> {
                   return;
                 }
 
-                setState(() {
-                  todayTasks.insert(0, {
-                    'title': title,
-                    'date': date,
-                    'isDone': false,
-                  });
-                });
+                // Fungsi Create task baru
+                await _taskService.addTask(title, date);
 
-                Navigator.pop(dialogContext);
+                if (mounted) {
+                  Navigator.pop(dialogContext);
+                }
               },
               child: const Text('Simpan'),
             ),
@@ -177,64 +178,49 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 12),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: todayTasks.length,
-                itemBuilder: (context, index) {
-                  final task = todayTasks[index];
-                  return TodoCard(
-                    title: task['title'],
-                    date: task['date'],
-                    isDone: task['isDone'],
-                    onCheckChanged: (bool? value) {
-                      setState(() {
-                        todayTasks[index]['isDone'] = value ?? false;
-                      });
-                    },
-                    onDelete: () {
-                      setState(() {
-                        todayTasks.removeAt(index);
-                      });
-                    },
-                  );
-                },
-              ),
-              const SizedBox(height: 24),
+              StreamBuilder<List<TaskModel>>(
+                stream: _taskService.getTasks(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Terjadi kesalahan: ${snapshot.error}');
+                  }
 
-              // ============ YANG AKAN DATANG SECTION ============
-              Text(
-                'Yang akan datang',
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: const Color(0xFF0F172A),
-                ),
-              ),
-              const SizedBox(height: 12),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: upcomingTasks.length,
-                itemBuilder: (context, index) {
-                  final task = upcomingTasks[index];
-                  return TodoCard(
-                    title: task['title'],
-                    date: task['date'],
-                    isDone: task['isDone'],
-                    onCheckChanged: (bool? value) {
-                      setState(() {
-                        upcomingTasks[index]['isDone'] = value ?? false;
-                      });
-                    },
-                    onDelete: () {
-                      setState(() {
-                        upcomingTasks.removeAt(index);
-                      });
-                    },
-                  );
-                },
-              ),
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+
+                  final tasks = snapshot.data ?? [];
+
+                  if (tasks.isEmpty) {
+                    return const Center(
+                      child: Text('Tidak ada tugas untuk hari ini.'),
+                    );
+                  }
+                  return ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: tasks.length,
+                  itemBuilder: (context, index) {
+                    final task = tasks[index];
+                    return TodoCard(
+                      title: task.title,
+                      date: task.date,
+                      isDone: task.isCompleted,
+                      // update
+                      onCheckChanged: (bool? value) async {
+                        await _taskService.updateTask(task.id, task.isCompleted);
+                      },
+                      // delete
+                      onDelete: () async {
+                        await _taskService.deleteTask(task.id);
+                      },
+                    );
+                  },
+                );
+                }
+              )
             ],
           ),
         ),

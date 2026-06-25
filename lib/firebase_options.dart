@@ -40,49 +40,50 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCURS_wrznq9B0eNQWja-5prtfnAoHJkgU',
-    appId: '1:361959917095:web:13f50d059a28672ff57002',
-    messagingSenderId: '361959917095',
-    projectId: 'edutrack-7571b',
-    authDomain: 'edutrack-7571b.firebaseapp.com',
-    storageBucket: 'edutrack-7571b.firebasestorage.app',
-    measurementId: 'G-11HFLKG3Y5',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCUn_8_Q13Bco-_w1-O7HBkQ14ASlgyy94',
-    appId: '1:361959917095:android:9a97a1e20501c207f57002',
-    messagingSenderId: '361959917095',
-    projectId: 'edutrack-7571b',
-    storageBucket: 'edutrack-7571b.firebasestorage.app',
+    apiKey: 'AIzaSyDIwK-EXl-Xl3C-DvPBl_KIly5GQTexyJo',
+    appId: '1:578215553352:android:46456c84d9a71af76cab7d',
+    messagingSenderId: '578215553352',
+    projectId: 'edutrack-coba',
+    storageBucket: 'edutrack-coba.firebasestorage.app',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBf-kFVX6Y7RV4od7Oxnmn52gfAIro_mvo',
-    appId: '1:361959917095:ios:a585d64a5dc3f1c7f57002',
-    messagingSenderId: '361959917095',
-    projectId: 'edutrack-7571b',
-    storageBucket: 'edutrack-7571b.firebasestorage.app',
-    iosBundleId: 'com.example.edutrackApp',
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCje4OyTf8NyV992D4i7-BivasQF_j41LY',
+    appId: '1:908631189184:web:618b23c2cb6b8f212d2f25',
+    messagingSenderId: '908631189184',
+    projectId: 'edutrack-d716c',
+    authDomain: 'edutrack-d716c.firebaseapp.com',
+    storageBucket: 'edutrack-d716c.firebasestorage.app',
+    measurementId: 'G-XELX4ZPWCF',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBf-kFVX6Y7RV4od7Oxnmn52gfAIro_mvo',
-    appId: '1:361959917095:ios:a585d64a5dc3f1c7f57002',
-    messagingSenderId: '361959917095',
-    projectId: 'edutrack-7571b',
-    storageBucket: 'edutrack-7571b.firebasestorage.app',
+    apiKey: 'AIzaSyD_bg1fhvFGoeME-c_tpMePIjpiVW_zHK8',
+    appId: '1:908631189184:ios:90d6be293f7b5e102d2f25',
+    messagingSenderId: '908631189184',
+    projectId: 'edutrack-d716c',
+    storageBucket: 'edutrack-d716c.firebasestorage.app',
+    iosBundleId: 'com.example.edutrackApp',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyD_bg1fhvFGoeME-c_tpMePIjpiVW_zHK8',
+    appId: '1:908631189184:ios:90d6be293f7b5e102d2f25',
+    messagingSenderId: '908631189184',
+    projectId: 'edutrack-d716c',
+    storageBucket: 'edutrack-d716c.firebasestorage.app',
     iosBundleId: 'com.example.edutrackApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCURS_wrznq9B0eNQWja-5prtfnAoHJkgU',
-    appId: '1:361959917095:web:d3fb9ab003f455c3f57002',
-    messagingSenderId: '361959917095',
-    projectId: 'edutrack-7571b',
-    authDomain: 'edutrack-7571b.firebaseapp.com',
-    storageBucket: 'edutrack-7571b.firebasestorage.app',
-    measurementId: 'G-JZWD1YWWGR',
+    apiKey: 'AIzaSyCje4OyTf8NyV992D4i7-BivasQF_j41LY',
+    appId: '1:908631189184:web:753180e89dd8922d2d2f25',
+    messagingSenderId: '908631189184',
+    projectId: 'edutrack-d716c',
+    authDomain: 'edutrack-d716c.firebaseapp.com',
+    storageBucket: 'edutrack-d716c.firebasestorage.app',
+    measurementId: 'G-ZC4KRJ3B0P',
   );
+
 }

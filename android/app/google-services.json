@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "361959917095",
-    "project_id": "edutrack-7571b",
-    "storage_bucket": "edutrack-7571b.firebasestorage.app"
+    "project_number": "578215553352",
+    "project_id": "edutrack-coba",
+    "storage_bucket": "edutrack-coba.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:361959917095:android:9a97a1e20501c207f57002",
+        "mobilesdk_app_id": "1:578215553352:android:46456c84d9a71af76cab7d",
         "android_client_info": {
           "package_name": "com.example.edutrack_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCUn_8_Q13Bco-_w1-O7HBkQ14ASlgyy94"
+          "current_key": "AIzaSyDIwK-EXl-Xl3C-DvPBl_KIly5GQTexyJo"
         }
       ],
       "services": {
